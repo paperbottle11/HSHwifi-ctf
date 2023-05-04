@@ -66,41 +66,34 @@ rfkill unblock all
 
 # Start AP #1
 hostapd -K -B AP-guest.conf
-ifconfig wlan4 up 192.168.4.1 netmask 255.255.255.0
-route add -net 192.168.4.0 netmask 255.255.255.0 gw 192.168.4.1
-
-dnsmasq -C dnsmasq-guest.conf
 
 # Add Guest clients
-# Spoof macs to look like Apple/Android devices
-macchanger -m F8:95:EA:02:25:16 wlan9 # Apple
+macchanger -m F8:95:EA:02:25:16 wlan7 # Apple
+wpa_supplicant -c client-guest.conf -i wlan7 -K -B
+
+macchanger -m C4:93:D9:47:A2:80 wlan8 # Samsung
+wpa_supplicant -c client-guest.conf -i wlan8 -K -B
+
+macchanger -m 44:07:0B:0C:33:F2 wlan9 # Google
 wpa_supplicant -c client-guest.conf -i wlan9 -K -B
-ifconfig wlan9 up 192.168.4.2 netmask 255.255.255.0
 
-macchanger -m C4:93:D9:47:A2:80 wlan10 # Samsung
+macchanger -m 50:7A:C5:0C:33:F2 wlan10 # Apple
+wpa_supplicant -c client-guest.conf -i wlan10 -K -B
+
+macchanger -m 74:9E:AF:0C:33:F2 wlan11 # Apple
 wpa_supplicant -c client-guest.conf -i wlan11 -K -B
-ifconfig wlan11 up 192.168.4.3 netmask 255.255.255.0
-
-macchanger -m 44:07:0B:0C:33:F2 wlan11 # Google
-wpa_supplicant -c client-guest.conf -i wlan12 -K -B
-ifconfig wlan12 up 192.168.4.4 netmask 255.255.255.0
-
-macchanger -m 50:7A:C5:0C:33:F2 wlan12 # Apple
-wpa_supplicant -c client-guest.conf -i wlan13 -K -B
-ifconfig wlan13 up 192.168.4.5 netmask 255.255.255.0
-
-macchanger -m 74:9E:AF:0C:33:F2 wlan13 # Apple
-wpa_supplicant -c client-guest.conf -i wlan14 -K -B
-ifconfig wlan14 up 192.168.4.6 netmask 255.255.255.0
 
 # Start AP for psk cracking
 hostapd -K -B AP-crack.conf
-wpa_supplicant -c client-crack.conf -i wlan3 -K -B
+macchanger -r wlan12
+wpa_supplicant -c client-crack.conf -i wlan12 -K -B
 
 # Start Hidden SSID easteregg
 hostapd -K -B AP-hidden.conf
-wpa_supplicant -c client-hidden.conf -i wlan8 -K -B
+macchanger -r wlan13
+wpa_supplicant -c client-hidden.conf -i wlan13 -K -B
 
 # Start Hidden 5GHz AP
 hostapd -K -B AP-5ghz.conf
-wpa_supplicant -c client-5ghz.conf -i wlan2 -K -B
+macchanger -r wlan14
+wpa_supplicant -c client-5ghz.conf -i wlan14 -K -B
