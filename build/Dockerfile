@@ -27,23 +27,23 @@ RUN apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y && \
   wireless-tools \
   make \
   aircrack-ng \
-  wget
+  wget \
+  nano
 
 # Make home directory
 RUN mkdir /home/hsh
 RUN echo "cd /home/hsh" >> /root/.bashrc
 
-# Copy wordlist for aircrack-ng
-RUN cd /home/hsh
-RUN wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
-
-# Set up SSH access
-RUN mkdir /var/run/sshd
-RUN echo 'root:ctf1234' | chpasswd
-COPY content/sshd_config /etc/ssh/sshd_config
+# Copy rockyou.txt wordlist for aircrack-ng
+RUN wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt -P /home/hsh
 
 # Remove login message
 RUN touch ~/.hushlogin
+
+# Set up SSH access
+RUN mkdir /var/run/sshd
+RUN echo 'root:password' | chpasswd
+COPY content/sshd_config /etc/ssh/sshd_config
 
 CMD ["/usr/sbin/sshd", "-D"]
 

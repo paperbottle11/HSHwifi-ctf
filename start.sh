@@ -6,7 +6,7 @@ ROOT_DIR=`dirname "$(realpath $0)"`
 
 CONTAINER_NAME=ctf
 
-NUM_RADIOS=15
+NUM_RADIOS=19
 
 PLAYER_SSH_PORT=22
 
@@ -64,36 +64,53 @@ cd $ROOT_DIR
 # Make sure wifi isn't blocked
 rfkill unblock all
 
-# Start AP #1
+# Start Recon AP 
+macchanger -r wlan2
 hostapd -K -B AP-guest.conf
 
 # Add Guest clients
-macchanger -m F8:95:EA:02:25:16 wlan7 # Apple
+macchanger -m F8:95:EA:02:25:16 wlan6 # Apple
+wpa_supplicant -c client-guest.conf -i wlan6 -K -B
+
+macchanger -m C4:93:D9:47:A2:80 wlan7 # Samsung
 wpa_supplicant -c client-guest.conf -i wlan7 -K -B
 
-macchanger -m C4:93:D9:47:A2:80 wlan8 # Samsung
+macchanger -m 44:07:0B:0C:33:F2 wlan8 # Google
 wpa_supplicant -c client-guest.conf -i wlan8 -K -B
 
-macchanger -m 44:07:0B:0C:33:F2 wlan9 # Google
+macchanger -m 50:7A:C5:0C:33:F2 wlan9 # Apple
 wpa_supplicant -c client-guest.conf -i wlan9 -K -B
 
-macchanger -m 50:7A:C5:0C:33:F2 wlan10 # Apple
+macchanger -m 74:9E:AF:0C:33:F2 wlan10 # Apple
 wpa_supplicant -c client-guest.conf -i wlan10 -K -B
 
-macchanger -m 74:9E:AF:0C:33:F2 wlan11 # Apple
-wpa_supplicant -c client-guest.conf -i wlan11 -K -B
-
 # Start AP for psk cracking
+macchanger -r wlan3
 hostapd -K -B AP-crack.conf
-macchanger -r wlan12
-wpa_supplicant -c client-crack.conf -i wlan12 -K -B
+macchanger -r wlan11
+wpa_supplicant -c client-crack.conf -i wlan11 -K -B
 
-# Start Hidden SSID easteregg
+# Start Hidden SSID AP
+macchanger -r wlan4
 hostapd -K -B AP-hidden.conf
-macchanger -r wlan13
-wpa_supplicant -c client-hidden.conf -i wlan13 -K -B
+macchanger -r wlan12
+wpa_supplicant -c client-hidden.conf -i wlan12 -K -B
 
 # Start Hidden 5GHz AP
+macchanger -r wlan5
 hostapd -K -B AP-5ghz.conf
+macchanger -r wlan13
+wpa_supplicant -c client-5ghz.conf -i wlan13 -K -B
+
+# Start Extra APs
 macchanger -r wlan14
-wpa_supplicant -c client-5ghz.conf -i wlan14 -K -B
+macchanger -r wlan15
+macchanger -r wlan16
+macchanger -r wlan17
+macchanger -r wlan18
+
+hostapd -K -B AP-extra.conf
+hostapd -K -B AP-extra2.conf
+hostapd -K -B AP-extra3.conf
+hostapd -K -B AP-extra4.conf
+hostapd -K -B AP-extra5.conf
