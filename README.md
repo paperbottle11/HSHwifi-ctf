@@ -28,6 +28,9 @@ Install packages marked as missing or not found when running start.sh
 * apt-get install wireless-tools
 * apt-get install iw
 
+This command will install the above packages in one line:
+* apt-get install -y docker.io net-tools hostapd dnsmasq wpasupplicant macchanger network-manager rfkill wireless-tools iw
+
 Set the docker user and password for each team in start.sh (format: “root:password”)
 
 Example passwords in team order:
