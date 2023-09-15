@@ -1,4 +1,4 @@
-# GitHub Repo
+# HighSchoolHack WiFi Capture The Flag Challenges
 
 [https://github.com/paperbottle11/HSHwifi-ctf](https://github.com/paperbottle11/HSHwifi-ctf)
 
