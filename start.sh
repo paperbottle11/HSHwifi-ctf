@@ -6,7 +6,7 @@ ROOT_DIR=`dirname "$(realpath $0)"`
 
 CONTAINER_NAME=ctf
 
-NUM_RADIOS=19
+NUM_RADIOS=20
 
 PLAYER_SSH_PORT=22
 
@@ -65,7 +65,7 @@ cd $ROOT_DIR
 rfkill unblock all
 
 # Start Recon AP 
-macchanger -r wlan2
+macchanger -m 00:7c:d5:2d:a6:66 wlan2
 hostapd -K -B AP-guest.conf
 
 # Add Guest clients
@@ -114,3 +114,7 @@ hostapd -K -B AP-extra2.conf
 hostapd -K -B AP-extra3.conf
 hostapd -K -B AP-extra4.conf
 hostapd -K -B AP-extra5.conf
+
+# Start Tavern Twin
+macchanger -m 00:7c:d5:2d:a6:66 wlan19
+hostapd -K -B AP-eviltwin.conf
