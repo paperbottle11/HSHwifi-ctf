@@ -97,7 +97,16 @@ Challenge 1: MAC Recon
     * [https://mac-address.alldatafeeds.com/mac-address-lookup](https://mac-address.alldatafeeds.com/mac-address-lookup)
 * FLAG: MAC address of Google device (_listed above_)
 
-Challenge 2: Hidden SSID AP
+Challenge 2: Suspicious Activity
+
+
+
+* Something is wrong with one of the APs.
+* It's like there's two of them?
+* Find the SSID of the AP that has an evil twin.
+* FLAG: The Tabernacle Tavern
+
+Challenge 3: Hidden SSID AP
 
 
 
@@ -106,7 +115,7 @@ Challenge 2: Hidden SSID AP
 * At the same time, have airodump-ng running to see the decloaked SSID
 * FLAG: decloaked SSID - _HMS Holland_
 
-Challenge 3: WPA2 Cracking
+Challenge 4: WPA2 Cracking
 
 
 
@@ -116,21 +125,21 @@ Challenge 3: WPA2 Cracking
 * Use aircrack-ng to crack the capture file
 * FLAG: cracked password from the capture file (“_babyblue_”)
 
-Challenge 4: Hidden 5GHz AP
+Challenge 5: Hidden 5GHz AP
 
 
 
 * Use the ‘--band a’ option with airodump-ng to find the AP on a 5GHz channel
 * FLAG: the channel the AP is broadcasting on - _36_
 
-Challenge 5: Hidden SSID 5GHz AP
+Challenge 6: Hidden SSID 5GHz AP
 
 
 
 * Using the information from Challenge 4 and the procedure from Challenge 2, decloak the SSID
 * FLAG: SSID of hidden AP - _The Hidden Treasure_
 
-Challenge 6: Hidden 5GHz AP Password
+Challenge 7: Hidden 5GHz AP Password
 
 
 
