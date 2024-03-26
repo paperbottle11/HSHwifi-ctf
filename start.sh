@@ -116,5 +116,5 @@ hostapd -K -B AP-extra4.conf
 hostapd -K -B AP-extra5.conf
 
 # Start Tavern Twin
-macchanger -m 00:7c:d5:2d:a6:66 wlan19
+macchanger -m 00:00:00:00:00:99 wlan19
 hostapd -K -B AP-eviltwin.conf
