@@ -87,7 +87,16 @@ Setup APs and clients (All should have randomized MACs except clients for MAC Re
     11. Cannons Not Included
     12. LAN-ho!
 
-Challenge 1: MAC Recon
+Challenge 1: Suspicious Activity
+
+
+
+* Something is wrong with one of the APs.
+* It's like there's two of them?
+* Find the SSID of the AP that has an evil twin.
+* FLAG: The International Space Station
+
+Challenge 2: MAC Recon
 
 
 
@@ -97,15 +106,6 @@ Challenge 1: MAC Recon
     * [https://mac-address.alldatafeeds.com/mac-address-lookup](https://mac-address.alldatafeeds.com/mac-address-lookup)
 * FLAG: MAC address of Google device (_listed above_)
 
-Challenge 2: Suspicious Activity
-
-
-
-* Something is wrong with one of the APs.
-* It's like there's two of them?
-* Find the SSID of the AP that has an evil twin.
-* FLAG: The Tabernacle Tavern
-
 Challenge 3: Hidden SSID AP
 
 
@@ -113,17 +113,17 @@ Challenge 3: Hidden SSID AP
 * Find the device on the hidden SSID AP
 * Use aireplay-ng in a new terminal window to send de-authentication packets to the client
 * At the same time, have airodump-ng running to see the decloaked SSID
-* FLAG: decloaked SSID - _HMS Holland_
+* FLAG: decloaked SSID - _Forward Unto Dawn_
 
 Challenge 4: WPA2 Cracking
 
 
 
-* Find the device on the HMS LANguard AP
+* Find the device on the The Pillar of Autumn AP
 * Use aireplay-ng in a new terminal window to send de-authentication packets to the client
 * At the same time, have airodump-ng running to capture the WPA handshake 
 * Use aircrack-ng to crack the capture file
-* FLAG: cracked password from the capture file (“_babyblue_”)
+* FLAG: cracked password from the capture file (“_sky2fly_”)
 
 Challenge 5: Hidden 5GHz AP
 
@@ -137,11 +137,11 @@ Challenge 6: Hidden SSID 5GHz AP
 
 
 * Using the information from Challenge 4 and the procedure from Challenge 2, decloak the SSID
-* FLAG: SSID of hidden AP - _The Hidden Treasure_
+* FLAG: SSID of hidden AP - _The Darkside of the Moon_
 
 Challenge 7: Hidden 5GHz AP Password
 
 
 
 * Combining information from Challenge 4 and 5 and procedures from Challenge 3, crack the password of the hidden 5GHz AP
-* FLAG: cracked password (“_fullhouse_”)
+* FLAG: cracked password ("_mezza4_")
