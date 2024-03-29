@@ -8,7 +8,7 @@ CONTAINER_NAME=ctf
 
 NUM_RADIOS=20
 
-PLAYER_SSH_PORT=22
+PLAYER_SSH_PORT=1001
 
 # Stop host wpa_supplicant
 nmcli radio wifi off
@@ -28,7 +28,7 @@ docker stop $CONTAINER_NAME
 docker container prune -f
 
 #Start container
-docker run -dt --name $CONTAINER_NAME -p $PLAYER_SSH_PORT:22 --net=bridge --cap-add=NET_ADMIN --cap-add=NET_RAW ctf-kali
+docker run -dt --name $CONTAINER_NAME -p $PLAYER_SSH_PORT:22 --net=bridge --cap-add=NET_ADMIN --cap-add=NET_RAW ctf
 
 # Create simulated wireless interfaces
 rmmod mac80211_hwsim

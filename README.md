@@ -65,27 +65,27 @@ Setup APs and clients (All should have randomized MACs except clients for MAC Re
 
 
 1. Open AP for MAC Recon: 5 clients (3 Apple, 1 Google, 1 Samsung)
-    1. SSID: The Tabernacle Tavern
+    1. SSID: The International Space Station
     2. Apple MACs
         1. F8:95:EA:02:25:16
         2. 50:7A:C5:0C:33:F2
         3. 74:9E:AF:0C:33:F2
-    3. Google MACs (Captain Neckbeard)
+    3. Google MACs
         4. 44:07:0B:0C:33:F2
-    4. Samsung MACs
+    4. Samsung MACs (FLAG)
         5. C4:93:D9:47:A2:80
 2. WPA2 AP for Cracking: one client
-    5. SSID: HMS LANguard
+    5. SSID: The Pillar of Autumn
 3. 5GHz band AP: one client
-    6. SSID: The Hidden Treasure
+    6. SSID: The Darkside of the Moon
 4. Non-broadcasted SSID AP: one client
-    7. SSID: HMS Holland
+    7. SSID: Forward Unto Dawn
 5. Extra APs to populate airspace
-    8. HMS LANcaster
-    9. The LAN of the Lost
-    10. The Broadband Buccaneer
-    11. Cannons Not Included
-    12. LAN-ho!
+    8. Star Net
+    9. Cosmo Connect
+    10. Andromeda Node
+    11. Airlocks Not Included
+    12. Orion Node
 
 Challenge 1: Suspicious Activity
 
@@ -93,8 +93,8 @@ Challenge 1: Suspicious Activity
 
 * Something is wrong with one of the APs.
 * It's like there's two of them?
-* Find the SSID of the AP that has an evil twin.
-* FLAG: The International Space Station
+* Find the MAC of the AP that has an evil twin.
+* FLAG: 00:00:00:00:00:99
 
 Challenge 2: MAC Recon
 
@@ -103,8 +103,8 @@ Challenge 2: MAC Recon
 * Get a wifi interface up in monitor mode using airmon-ng
 * Use airodump-ng to find the open AP and devices on it
 * Find the MAC Address of the Google device (using the tool below)
-    * [https://mac-address.alldatafeeds.com/mac-address-lookup](https://mac-address.alldatafeeds.com/mac-address-lookup)
-* FLAG: MAC address of Google device (_listed above_)
+    * [https://macaddress.io/](https://macaddress.io/)
+* FLAG: MAC address of Samsung device (_listed above_)
 
 Challenge 3: Hidden SSID AP
 
