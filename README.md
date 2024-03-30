@@ -123,7 +123,7 @@ Challenge 4: WPA2 Cracking
 * Use aireplay-ng in a new terminal window to send de-authentication packets to the client
 * At the same time, have airodump-ng running to capture the WPA handshake 
 * Use aircrack-ng to crack the capture file
-* FLAG: cracked password from the capture file (“_sky2fly_”)
+* FLAG: cracked password from the capture file (“_stucco777_”)
 
 Challenge 5: Hidden 5GHz AP
 
@@ -144,4 +144,4 @@ Challenge 7: Hidden 5GHz AP Password
 
 
 * Combining information from Challenge 4 and 5 and procedures from Challenge 3, crack the password of the hidden 5GHz AP
-* FLAG: cracked password ("_mezza4_")
+* FLAG: cracked password ("_mini1cooper_")
