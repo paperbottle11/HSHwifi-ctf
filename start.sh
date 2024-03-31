@@ -14,9 +14,9 @@ PLAYER_SSH_PORT=1001
 nmcli radio wifi off
 
 # Stop host resolved
-systemctl stop systemd-resolved
-systemctl disable systemd-resolved
-systemctl mask systemd-resolved
+#systemctl stop systemd-resolved
+#systemctl disable systemd-resolved
+#systemctl mask systemd-resolved
 
 # Stop hostapd and dnsmasq
 pkill hostapd
