@@ -34,7 +34,7 @@ docker run -dt --name $CONTAINER_NAME -p $PLAYER_SSH_PORT:22 --net=bridge --cap-
 rmmod mac80211_hwsim
 modprobe mac80211_hwsim radios=$NUM_RADIOS
 
-# Give container access to first 3 interfaces
+# Give container access to first 2 interfaces
 mkdir -p /var/run/netns
 
 pid=$(docker inspect -f '{{.State.Pid}}' ctf)
@@ -46,12 +46,10 @@ ln -s /proc/$pid/ns/net /var/run/netns/$pid
 echo "Getting interface names"
 phy0=$(cat /sys/class/net/wlan0/phy80211/name)
 phy1=$(cat /sys/class/net/wlan1/phy80211/name)
-# phy2=$(cat /sys/class/net/wlan2/phy80211/name)
 
 echo "Adding interfaces to container"
 iw phy $phy0 set netns $pid
 iw phy $phy1 set netns $pid
-# iw phy $phy2 set netns $pid
 
 sleep 1
 
