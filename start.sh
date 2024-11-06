@@ -13,11 +13,6 @@ PLAYER_SSH_PORT=1001
 # Stop host wpa_supplicant
 nmcli radio wifi off
 
-# Stop host resolved
-#systemctl stop systemd-resolved
-#systemctl disable systemd-resolved
-#systemctl mask systemd-resolved
-
 # Stop hostapd and dnsmasq
 pkill hostapd
 pkill dnsmasq
